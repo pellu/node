@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 Vote pour ton personnage préféré !
+  - var votes = ouioui + becassine
+  p Nombre de votes : #{ votes } voies
+  p Oui-Oui : #{ouioui} voies (#{ (ouioui*100/votes).toFixed(2) } %)
+  p Bécassine : #{becassine} voies (#{ (becassine*100/votes).toFixed(2) } %)
+  hr
+  form(action='/', method='get')
+    p Je vote pour :
+    input(type='radio', value='ouioui', name='vote')
+    label(for='ouioui') Oui-Oui
+    br
+    input(type='radio', value='becassine', name='vote')
+    label(for='ouioui') Bécassine
+    p
+      label(for='email') E-mail :&nbsp;
+      input(type='email', name='email')
+    p
+      input(type='submit')
